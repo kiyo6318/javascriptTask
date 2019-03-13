@@ -25,7 +25,6 @@ $(document).ready(function(){
   function get_achievement(){
     // ここに、ランクの値の文字列（平均点が80点以上なら"A"、60点以上なら"B"、40点以上なら"C"、それ以下なら"D"）を出力する処理を書き込む
     let rank = $("#avarage_indicate").text();
-    $("#btn-evaluation").click(function(){
       if(rank>=80){
         $("#evaluation").text("A");
       }else if(rank>=60){
@@ -35,7 +34,6 @@ $(document).ready(function(){
       }else{
         $("#evaluation").text("D");
       }
-    });
   }
 
   function get_pass_or_failure(){
@@ -45,13 +43,11 @@ $(document).ready(function(){
     let mathematics = $("#mathematics").val();
     let science = $("#science").val();
     let society = $("#society").val();
-    $("#btn-judge").click(function(){
       if(national_language >= 60 && english >= 60 && mathematics >= 60 && science >= 60 && society >= 60){
         $("#judge").text("合格")
       }else{
         $("#judge").text("不合格")
       }
-    });
   }
   
 
@@ -60,6 +56,7 @@ $(document).ready(function(){
     let evaluation = $("#evaluation").text();
     let judge = $("#judge").text();
     // 下記の記述をすることで、「最終ジャッジ」のボタンを押すと「あなたの成績は（ここに「ランク」の値を入れる）です。（ここに「判定」の値を入れる）です」という文字の入った水色のフキダシが出力される処理が実装される。
+    $("#alert-indicate").remove()
     $('#declaration').append(`<label id="alert-indicate" class="alert alert-info">あなたの成績は${evaluation}です。${judge}です</label>`);
   }
 
